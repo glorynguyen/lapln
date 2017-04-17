@@ -100,10 +100,20 @@ div.panel {
   background-image: url("../images/panel.png");
   background-repeat: no-repeat; }
 
-div.work {
-  width: 100%;
-  height: 300px;
+div#work-zone {
+  height: 420px;
   margin-top: 90px;
-  /*background-image: url('../images/work.png');
-	background-repeat: no-repeat;*/
-  background-color: violet; }
+  margin: 90px 5px 5px 5px; }
+  div#work-zone div.info {
+    line-height: 1.2;
+    height: 420px; }
+    div#work-zone div.info .super-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: #fca301; }
+    div#work-zone div.info .description {
+      line-height: 1.6; }
+  div#work-zone div.image {
+    height: 420px;
+    background-image: url("../images/work-background.png");
+    background-repeat: no-repeat; }
