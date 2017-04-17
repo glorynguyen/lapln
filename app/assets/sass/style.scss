@@ -1,0 +1,38 @@
+$link-active-color: #fca203;
+@mixin padding-left-right($value) {
+ 	padding-left: $value;
+    padding-right: $value;
+}
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+.nav-text-color {
+	color: #343434;
+}
+ul.navbar-nav {
+	li.nav-item {
+		a:hover {
+			color: $link-active-color !important;
+		};
+		a:focus {
+			color: $link-active-color !important;
+		};
+		@include padding-left-right(12px);
+	}
+}
+div.panel {
+	width: 100%;
+	height: 602px;
+	margin-top: 46px;
+	background-image: url('../images/panel.png');
+	background-repeat: no-repeat;
+}
+div.work {
+	width: 100%;
+	height: 300px;
+	margin-top: 90px;
+	/*background-image: url('../images/work.png');
+	background-repeat: no-repeat;*/
+	background-color: violet;
+}
