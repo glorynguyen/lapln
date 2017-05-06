@@ -19,20 +19,95 @@ div.panel {
   background-image: url("../images/panel.png");
   background-repeat: no-repeat; }
 
-div#work-zone {
-  height: 420px;
-  margin-top: 90px;
-  margin: 90px 5px 5px 5px; }
-  div#work-zone div.info {
-    line-height: 1.2;
-    height: 420px; }
-    div#work-zone div.info .super-title {
-      font-size: 30px;
-      font-weight: 800;
-      color: #fca301; }
-    div#work-zone div.info .description {
-      line-height: 1.6; }
-  div#work-zone div.image {
-    height: 420px;
-    background-image: url("../images/work-background.png");
-    background-repeat: no-repeat; }
+.super-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #fca301; }
+
+.content-div {
+  padding: 45px 0px;
+  height: initial; }
+
+.description {
+  line-height: 1.6; }
+
+.margin-b0 {
+  margin-bottom: 0px; }
+
+div#work-zone div.info {
+  line-height: 1.2; }
+
+div#work-zone div.image {
+  background-image: url("../images/work-background.png");
+  background-repeat: no-repeat;
+  height: 420px; }
+
+.center-block {
+  margin: auto; }
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes opacity {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+/* Standard syntax */
+@keyframes opacity {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+div#tech-zone .description {
+  max-width: 60%;
+  margin: auto;
+  font-style: italic; }
+
+div#tech-zone .tech-image {
+  background-image: url("../images/tech.png");
+  background-repeat: no-repeat;
+  height: 479px;
+  margin: auto;
+  margin-top: 40px;
+  background-size: contain; }
+
+div#tech-zone .tech-image2 {
+  height: 363px;
+  background-color: #3a3b5a; }
+  div#tech-zone .tech-image2 .info {
+    padding: 40px 0px; }
+  div#tech-zone .tech-image2 p {
+    text-align: right; }
+  div#tech-zone .tech-image2 .slide-button {
+    height: 100%;
+    width: 40px; }
+    div#tech-zone .tech-image2 .slide-button .slide {
+      display: flex;
+      float: right;
+      height: 100%;
+      justify-content: center;
+      flex-direction: column; }
+      div#tech-zone .tech-image2 .slide-button .slide .item {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 5px;
+        border: solid 1px white;
+        border-radius: 50%; }
+        div#tech-zone .tech-image2 .slide-button .slide .item.selected {
+          background-color: #fec34f; }
+      div#tech-zone .tech-image2 .slide-button .slide .item:hover {
+        background-color: rgba(255, 255, 255, 0.32); }
+
+.color-white {
+  color: white; }
+
+.text-slide {
+  opacity: 1;
+  -webkit-animation-name: opacity;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2s;
+  /* Safari 4.0 - 8.0 */
+  animation-name: opacity;
+  animation-duration: 2s; }

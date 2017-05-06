@@ -3,7 +3,6 @@ $link-active-color: #fca203;
  	padding-left: $value;
     padding-right: $value;
 }
-$work-height: 420px;
 body {
 	font-family: 'Raleway', sans-serif;
 }
@@ -29,28 +28,112 @@ div.panel {
 	background-image: url('../images/panel.png');
 	background-repeat: no-repeat;
 }
+.super-title {
+	font-size: 30px;
+	font-weight: 800;
+	color: #fca301;
+}
+.content-div {
+	padding: 45px 0px;
+	height: initial;
+}
+
+.description {
+	line-height: 1.6;
+}
+
+.margin-b0 {
+	margin-bottom: 0px;
+}
+
 div#work-zone {
-	height: $work-height;
-	margin-top: 90px;
-	margin: 90px 5px 5px 5px;
 	div.info {
 		line-height: 1.2;
-		height: $work-height;
 		.title {
 
 		}
-		.super-title {
-			font-size: 30px;
-    		font-weight: 800;
-    		color: #fca301;
-		}
-		.description {
-			line-height: 1.6;
-		}
 	}
 	div.image {
-		height: $work-height;
 		background-image: url('../images/work-background.png');
 		background-repeat: no-repeat;
+		height: 420px;
 	}
+}
+.center-block {
+	margin: auto;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes opacity {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Standard syntax */
+@keyframes opacity {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+div#tech-zone {
+	.description {
+		max-width: 60%;
+    	margin: auto;
+    	font-style: italic;
+	}
+	.tech-image {
+		background-image: url('../images/tech.png');
+		background-repeat: no-repeat;
+		height: 479px;
+	    margin: auto;
+	    margin-top: 40px;
+	    background-size: contain;
+	}
+	.tech-image2 {
+		height: 363px;
+		background-color: #3a3b5a;
+		.info {
+			padding: 40px 0px;
+		}
+		p {
+			text-align: right;
+		}
+		.slide-button {
+			height: 100%;
+			width: 40px;
+			.slide {
+				display: flex;
+				float: right;
+			    height: 100%;
+			    justify-content: center;
+			    flex-direction: column;
+			    .item {
+			    	cursor: pointer;
+			    	height: 15px;
+				    width: 15px;
+				    margin: 5px;
+				    border: solid 1px white;
+				    border-radius: 50%;
+				    &.selected {
+				    	background-color: #fec34f;
+				    }
+			    }
+			    .item:hover {
+			    	background-color: rgba(255, 255, 255, 0.32);
+			    }
+			}
+		}
+	}
+}
+
+.color-white {
+	color: white;
+}
+
+.text-slide {
+	opacity: 1;
+    -webkit-animation-name: opacity; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: opacity;
+    animation-duration: 2s;
 }

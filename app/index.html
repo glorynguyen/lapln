@@ -35,10 +35,10 @@
             <a class="nav-link nav-text-color" href="/#">- HOME <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-text-color" href="https://v4-alpha.getbootstrap.com/examples/offcanvas/#">OUR WORK</a>
+            <a class="nav-link nav-text-color" href="/#work-zone">OUR WORK</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-text-color" href="https://v4-alpha.getbootstrap.com/examples/offcanvas/#">TECHNOLOGY</a>
+            <a class="nav-link nav-text-color" href="/#tech-zone">TECHNOLOGY</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-text-color" href="https://v4-alpha.getbootstrap.com/examples/offcanvas/#">SERVICES</a>
@@ -46,39 +46,73 @@
           <li class="nav-item">
             <a class="nav-link nav-text-color" href="https://v4-alpha.getbootstrap.com/examples/offcanvas/#">CONTACT</a>
           </li>
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com/" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="https://v4-alpha.getbootstrap.com/examples/offcanvas/#">Action</a>
-              <a class="dropdown-item" href="https://v4-alpha.getbootstrap.com/examples/offcanvas/#">Another action</a>
-              <a class="dropdown-item" href="https://v4-alpha.getbootstrap.com/examples/offcanvas/#">Something else heres</a>
-            </div>
-          </li> -->
         </ul>
       </div>
     </nav>
-    <div class="panel"></div>
-    <div id="work-zone">
-        <div class="row">
-          <div class="col-md-2 col-sm-0">
-          </div>
-          <div class="col-md-10 col-sm-12">
-            <div class="row">
-              <div class="col-md-4 col-sm-12 info">
-                <p class="title">OUR WORK</p>
-                <p class="super-title">
-                  Wisi enim ad minim veniam, quis notrud?
-                </p>
-                <p class="description">
-                  This is the text between work. This is the description of your work. This is the text between work. This is the description of your work. This is the text between work. This is the description of your work. This is the text between work. This is the description of your work
-                </p>
-              </div>
-              <div class="col-md-8 col-sm-0 image">
+    <div class="container-fluid">
+      <div class="row panel"></div>
+      <div id="work-zone" class="row content-div">
+          <div class="row">
+            <div class="col-md-2 col-sm-0">
+            </div>
+            <div class="col-md-10 col-sm-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-12 info">
+                  <p class="title">OUR WORK</p>
+                  <p class="super-title">
+                    Wisi enim ad minim veniam, quis notrud?
+                  </p>
+                  <p class="description">
+                    This is the text between work. This is the description of your work. This is the text between work. This is the description of your work. This is the text between work. This is the description of your work. This is the text between work. This is the description of your work
+                  </p>
+                </div>
+                <div class="col-md-8 col-sm-0 image">
+                </div>
               </div>
             </div>
           </div>
+      </div>
+      <div id="tech-zone" class="row content-div">
+        <div class="center-block text-center">
+          <p class="title margin-b0">TECHNOLOGY</p>
+          <p class="super-title">
+            Est etiam proccessus
+          </p>
+          <p class="description">
+            This is the text between work. This is the description of your work. This is the text between work. This is the description of your work. This is the text between work. This is the description of your work. This is the text between work. This is the description of your work
+          </p>
+          <div class="tech-image col-md-9 col-sm-8"></div>
+          <div class="row tech-image2 col-md-11 col-sm-12">
+              <div class="col-md-6 info">
+                <p class="title margin-b0 color-white">TECHNOLOGY</p>
+                <p class="super-title">
+                  Est etiam proccessus
+                </p>
+                <p class="color-white text-slide" ng-if="selectedItemSlide == 1">
+                  This is the text between work. This is the description of your work. This is the text between work. This is the description of your work. This is the text between work. This is the description of your work. This is the text between work. This is the description of your work
+                </p>
+                <p class="color-white text-slide" ng-if="selectedItemSlide == 2">
+                  This is the text between work 2. This is the text. This is the text between work. This is the description of your work. This is the description of your work. This is the text between work. This is the description of your work
+                </p>
+                <p class="color-white text-slide" ng-if="selectedItemSlide == 3">
+                  This is the text between work 3. This is the description of your work. This is the description of your work. This is the text between work. This is the description of your work
+                </p>
+              </div>
+              <div class="col-md-6">
+                  <div class="slide-button">
+                    <div class="slide">
+                      <div class="item" ng-class="{'selected': selectedItemSlide == 1}" ng-click="selectItemSlide(1)"></div>
+                      <div class="item" ng-class="{'selected': selectedItemSlide == 2}" ng-click="selectItemSlide(2)"></div>
+                      <div class="item" ng-class="{'selected': selectedItemSlide == 3}" ng-click="selectItemSlide(3)"></div>
+                    </div>
+                  </div>
+                <img src="">
+              </div>
+          </div>
         </div>
+      </div>
     </div>
+    
     <!-- <div class="container">
 
       <div class="row row-offcanvas row-offcanvas-right">
@@ -168,7 +202,10 @@
 
       var app = angular.module('app', []);
       app.controller('appCtrl', function($scope) {
-          
+        $scope.selectedItemSlide = 2;
+        $scope.selectItemSlide = function (index) {
+            $scope.selectedItemSlide = index;
+        }
       });
     </script>
   
