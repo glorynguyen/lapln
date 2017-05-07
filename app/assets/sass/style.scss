@@ -90,6 +90,7 @@ div#tech-zone {
 	    background-size: contain;
 	}
 	.tech-image2 {
+		margin-top: 100px;
 		height: 363px;
 		background-color: #3a3b5a;
 		.info {
@@ -97,6 +98,10 @@ div#tech-zone {
 		}
 		p {
 			text-align: right;
+		}
+		img.mobile {
+			margin-top: -435px;
+    		margin-left: 51px;
 		}
 		.slide-button {
 			height: 100%;
@@ -115,13 +120,109 @@ div#tech-zone {
 				    border: solid 1px white;
 				    border-radius: 50%;
 				    &.selected {
-				    	background-color: #fec34f;
+				    	background-color: #fec34f !important;
 				    }
 			    }
 			    .item:hover {
 			    	background-color: rgba(255, 255, 255, 0.32);
 			    }
 			}
+		}
+	}
+}
+
+div#service-zone {
+	.description {
+		max-width: 60%;
+    	margin: auto;
+    	font-style: italic;
+	}
+	.service-images {
+		margin-top: 35px;
+		.row {
+			padding: 15px 0px;
+		}
+	}
+}
+
+div#contact-zone {
+	height: 212px;
+	background-image: url('../images/contact-bgr.png');
+	background-size: 100%;
+	.contact {
+		padding: 36px;
+		font-size: 30px;
+    	font-weight: bold;
+    	color: white;
+		width: 100%;
+	    height: 100%;
+	    background-color: rgba(0, 0, 0, 0.52);
+	    p {
+	    	font-size: 48px;
+	    }
+	    button {
+	    	height: 58px;
+	    	width: 203px;
+	    	background-color: #eb8b3e;
+	    	color: white;
+		    position: relative;
+		    float: right;
+		    top: -90px;
+		    right: 169px;
+		    border: none;
+		    cursor: pointer;
+		    font-size: 20px;
+	    }
+	    button:focus {
+	    	outline: none;
+	    }
+	}
+}
+
+.ws-footer {
+	height: 135px;
+	background-color: #eff4f8;
+	.row {
+		height: 100%;
+	    width: 100%;
+	    margin: 0px;
+	}
+
+	.ws-menu {
+		width: 100%;
+		height: 100%;
+		padding: 34px 40px;
+		
+		ul {
+			flex-direction: row;
+		}
+		img {
+			margin-bottom: 10px;
+		}
+	}
+	.ws-link {
+		width: 100%;
+		height: 100%;
+		padding: 57px 70px;
+		background-color: white;
+		i {
+			margin: 0px 10px;
+			cursor: pointer;
+		}
+		i.fa-pinterest:hover {
+			color: rgb(189, 8, 28);
+		}
+		i.fa-twitter:hover {
+			color: #1da1f2;
+		}
+		i.fa-facebook:hover {
+			color: #3b5998;
+		}
+		i.fa-google-plus:hover {
+			color: #4285f4;
+		}
+		i.fa-linkedin:hover {
+			color: #0177b5;
 		}
 	}
 }
