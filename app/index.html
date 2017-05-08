@@ -35,13 +35,13 @@
             <a class="nav-link nav-text-color" href="/#">- HOME <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-text-color" href="/#work-zone">OUR WORK</a>
+            <a class="nav-link nav-text-color" href="/#ourwork">OUR WORK</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-text-color" href="/#tech-zone">TECHNOLOGY</a>
+            <a class="nav-link nav-text-color" href="/#technology">TECHNOLOGY</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-text-color" href="/#service-zone">SERVICES</a>
+            <a class="nav-link nav-text-color" href="/#service">SERVICES</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-text-color" href="/#contact-zone">CONTACT</a>
@@ -50,7 +50,33 @@
       </div>
     </nav>
     <div class="container-fluid">
-      <div class="row panel"></div>
+      <div id="panelIndicator" class="row carousel slide panel" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#panelIndicator" data-slide-to="0" class="active"></li>
+          <li data-target="#panelIndicator" data-slide-to="1"></li>
+          <li data-target="#panelIndicator" data-slide-to="2"></li>
+        </ol>
+        <div class="panel-label">
+          <div class="info">
+            
+          </div>
+          <div>
+            <button type="button" data-toggle="modal" data-target="#contactModal">GET IN TOUCH</button>
+          </div>
+        </div>
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <img class="d-block img-fluid" src="../assets/images/banner_1.jpg">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="../assets/images/banner_2.jpg">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="../assets/images/banner_3.jpg">
+          </div>
+        </div>
+      </div>
+      <div id="ourwork" style="width: 100%; height: 70px;"></div>
       <div id="work-zone" class="row content-div">
           <div class="row">
             <div class="col-md-2 col-sm-0">
@@ -66,12 +92,31 @@
                     This is the text between work. This is the description of your work. This is the text between work. This is the description of your work. This is the text between work. This is the description of your work. This is the text between work. This is the description of your work
                   </p>
                 </div>
-                <div class="col-md-8 col-sm-0 image">
+                <div class="col-md-8 col-sm-0">
+                  <div id="ourworkIndicator" class="row carousel slide panel" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#ourworkIndicator" data-slide-to="0" class="active"></li>
+                      <!-- <li data-target="#ourworkIndicator" data-slide-to="1"></li>
+                      <li data-target="#ourworkIndicator" data-slide-to="2"></li> -->
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                      <div class="carousel-item active">
+                        <img class="d-block img-fluid" src="../assets/images/ourword_1.jpg">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block img-fluid" src="../assets/images/ourword_2.jpg">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block img-fluid" src="../assets/images/ourword_3.jpg">
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
       </div>
+      <div id="technology" style="width: 100%; height: 70px;"></div>
       <div id="tech-zone" class="row content-div">
         <div class="center-block text-center">
           <p class="title margin-b0">TECHNOLOGY</p>
@@ -107,12 +152,15 @@
                   </div>
                 </div>
                 <div class="col-md-8 col-sm-0">
-                  <img class="mobile hidden-sm-down" src="../assets/images/mobile.png">
+                  <img ng-if="selectedItemSlide == 1" class="mobile mobile-1 hidden-sm-down" src="../assets/images/ap_1.png">
+                  <img ng-if="selectedItemSlide == 2" class="mobile mobile-2 hidden-sm-down" src="../assets/images/ap_2.png">
+                  <img ng-if="selectedItemSlide == 3" class="mobile mobile-3 hidden-sm-down" src="../assets/images/ap_3.png">
                 </div>
               </div>
           </div>
         </div>
       </div>
+      <div id="service" style="width: 100%; height: 70px;"></div>
       <div id="service-zone" class="row content-div">
         <div class="center-block text-center">
           <p class="title margin-b0">SERVICE</p>
@@ -163,13 +211,13 @@
               <a class="nav-link nav-text-color" href="/#">- HOME <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-text-color" href="/#work-zone">OUR WORK</a>
+              <a class="nav-link nav-text-color" href="/#ourwork">OUR WORK</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-text-color" href="/#tech-zone">TECHNOLOGY</a>
+              <a class="nav-link nav-text-color" href="/#technology">TECHNOLOGY</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-text-color" href="/#service-zone">SERVICES</a>
+              <a class="nav-link nav-text-color" href="/#service">SERVICES</a>
             </li>
             <li class="nav-item">
               <a class="nav-link nav-text-color" href="/#contact-zone">CONTACT</a>
@@ -221,11 +269,14 @@
     <script src="./assets/js/angular.min.js"></script>
     <script type="text/javascript">
       window.sr = ScrollReveal();
-      sr.reveal('.work');
+      sr.reveal('#work-zone',{reset: true});
+      sr.reveal('#tech-zone',{reset: true});
+      sr.reveal('#service-zone',{reset: true});
+      sr.reveal('#contact-zone',{reset: true});
 
       var app = angular.module('app', []);
       app.controller('appCtrl', function($scope) {
-        $scope.selectedItemSlide = 2;
+        $scope.selectedItemSlide = 1;
         $scope.selectItemSlide = function (index) {
             $scope.selectedItemSlide = index;
         }
