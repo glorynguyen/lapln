@@ -30,27 +30,27 @@
       </a>
 
       <div class="navbar-collapse collapse" id="navbarsExampleDefault" aria-expanded="false">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto" ng-init="tab='home'">
           <li class="nav-item active">
-            <a class="nav-link nav-text-color" href="/#">- HOME <span class="sr-only">(current)</span></a>
+            <a ng-class="{'selected-text-color': tab == 'home'}" ng-click="tab = 'home'" class="nav-link nav-text-color" href="#">- HOME <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-text-color" href="/#ourwork">OUR WORK</a>
+            <a ng-class="{'selected-text-color': tab == 'owr-work'}" ng-click="tab = 'owr-work'" class="nav-link nav-text-color" href="#work-zone">OUR WORK</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-text-color" href="/#technology">TECHNOLOGY</a>
+            <a ng-class="{'selected-text-color': tab == 'technology'}" ng-click="tab = 'technology'" class="nav-link nav-text-color" href="#tech-zone">TECHNOLOGY</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-text-color" href="/#service">SERVICES</a>
+            <a ng-class="{'selected-text-color': tab == 'service'}" ng-click="tab = 'service'" class="nav-link nav-text-color" href="#service-zone">SERVICES</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-text-color" href="/#contact-zone">CONTACT</a>
+            <a ng-class="{'selected-text-color': tab == 'contact'}" ng-click="tab = 'contact'" class="nav-link nav-text-color" href="#contact-zone">CONTACT</a>
           </li>
         </ul>
       </div>
     </nav>
     <div class="container-fluid">
-      <div id="panelIndicator" class="row carousel slide panel" data-ride="carousel">
+      <div id="panelIndicator" class="row carousel slide panel container1" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#panelIndicator" data-slide-to="0" class="active"></li>
           <li data-target="#panelIndicator" data-slide-to="1"></li>
@@ -77,7 +77,7 @@
         </div>
       </div>
       <div id="ourwork" style="width: 100%; height: 70px;"></div>
-      <div id="work-zone" class="row content-div">
+      <div id="work-zone" class="row content-div container1">
           <div class="row">
             <div class="col-md-2 col-sm-0">
             </div>
@@ -117,7 +117,7 @@
           </div>
       </div>
       <div id="technology" style="width: 100%; height: 70px;"></div>
-      <div id="tech-zone" class="row content-div">
+      <div id="tech-zone" class="row content-div container1">
         <div class="center-block text-center">
           <p class="title margin-b0">TECHNOLOGY</p>
           <p class="super-title">
@@ -161,7 +161,7 @@
         </div>
       </div>
       <div id="service" style="width: 100%; height: 70px;"></div>
-      <div id="service-zone" class="row content-div">
+      <div id="service-zone" class="row content-div container1" >
         <div class="center-block text-center">
           <p class="title margin-b0">SERVICE</p>
           <p class="super-title">
@@ -196,7 +196,7 @@
           </div>
         </div>
       </div>
-      <div id="contact-zone" class="row">
+      <div id="contact-zone" class="row container1">
         <div class="contact">
           <span class="hidden-sm-down">- </span><span class="hidden-sm-down">Contact us</span>
           <p class="hidden-sm-down">GREAT OPPOTUNITIES AHEAD</p>
@@ -208,19 +208,19 @@
           <img src="../assets/images/logo-footer.png">
           <ul class="navbar-nav ml-auto hidden-sm-down">
             <li class="nav-item active" style="padding-left: 0px;">
-              <a class="nav-link nav-text-color" href="/#">- HOME <span class="sr-only">(current)</span></a>
+              <a ng-class="{'selected-text-color': tab == 'home'}" ng-click="tab = 'home'" class="nav-link nav-text-color" href="/#">- HOME <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-text-color" href="/#ourwork">OUR WORK</a>
+              <a ng-class="{'selected-text-color': tab == 'owr-work'}" ng-click="tab = 'owr-work'" class="nav-link nav-text-color" href="#work-zone">OUR WORK</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-text-color" href="/#technology">TECHNOLOGY</a>
+              <a ng-class="{'selected-text-color': tab == 'technology'}" ng-click="tab = 'technology'" class="nav-link nav-text-color" href="#tech-zone">TECHNOLOGY</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-text-color" href="/#service">SERVICES</a>
+              <a ng-class="{'selected-text-color': tab == 'service'}" ng-click="tab = 'service'" class="nav-link nav-text-color" href="#service-zone">SERVICES</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-text-color" href="/#contact-zone">CONTACT</a>
+              <a ng-class="{'selected-text-color': tab == 'contact'}" ng-click="tab = 'contact'" class="nav-link nav-text-color" href="#contact-zone">CONTACT</a>
             </li>
           </ul>
         </div>
@@ -275,12 +275,72 @@
       sr.reveal('#contact-zone',{reset: true});
 
       var app = angular.module('app', []);
-      app.controller('appCtrl', function($scope) {
+      app.controller('appCtrl', function($scope,$timeout) {
         $scope.selectedItemSlide = 1;
         $scope.selectItemSlide = function (index) {
             $scope.selectedItemSlide = index;
         }
       });
+
+      $(document).ready(function(){
+          // $sections incleudes all of the container divs that relate to menu items.
+          var $sections = $('.container1');
+          
+          // The user scrolls
+          $(window).scroll(function(){
+            
+            // currentScroll is the number of pixels the window has been scrolled
+            var currentScroll = $(this).scrollTop();
+            
+            // $currentSection is somewhere to place the section we must be looking at
+            var $currentSection
+            
+            // We check the position of each of the divs compared to the windows scroll positon
+            $sections.each(function(){
+              // divPosition is the position down the page in px of the current section we are testing      
+              var divPosition = $(this).offset().top;
+              
+              // If the divPosition is less the the currentScroll position the div we are testing has moved above the window edge.
+              // the -1 is so that it includes the div 1px before the div leave the top of the window.
+              if( divPosition - 1 < currentScroll ){
+                // We have either read the section or are currently reading the section so we'll call it our current section
+                $currentSection = $(this);
+                
+                // If the next div has also been read or we are currently reading it we will overwrite this value again. This will leave us with the LAST div that passed.
+              }
+              
+              // This is the bit of code that uses the currentSection as its source of ID
+              if ($currentSection) {
+                try {
+                  var id = $currentSection.attr('id');
+                  if (id == 'tech-zone') {
+                      $('a').removeClass('selected-text-color');
+                      $('[href="#tech-zone"]').addClass('selected-text-color');
+                  } else if (id == 'work-zone') {
+                      $('a').removeClass('selected-text-color');
+                      $('[href="#work-zone"]').addClass('selected-text-color');
+                  } else if (id == 'panelIndicator') {
+                      $('a').removeClass('selected-text-color');
+                      $('[href="#"]').addClass('selected-text-color');
+                  } else if (id == 'service-zone') {
+                      $('a').removeClass('selected-text-color');
+                      $('[href="#service-zone"]').addClass('selected-text-color');
+                  } else if (id == 'contact-zone') {
+                      $('a').removeClass('selected-text-color');
+                      $('[href="#contact-zone"]').addClass('selected-text-color');
+                  }
+                  if($(window).scrollTop() + $(window).height() == $(document).height()) {
+                    $('a').removeClass('selected-text-color');
+                    $('[href="#contact-zone"]').addClass('selected-text-color');
+                  }
+                } catch(e) {
+                  console.log(e);
+                }
+              }
+            })
+
+          });
+        });
     </script>
   
 

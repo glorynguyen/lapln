@@ -65,7 +65,7 @@ body {
   color: #fca301; }
 
 .content-div {
-  padding: 45px 0px;
+  padding: 0px 0px;
   height: initial; }
 
 .description {
@@ -82,6 +82,9 @@ body {
 
 .color-white {
   color: white; }
+
+.selected-text-color {
+  color: #fca203; }
 
 .text-slide {
   opacity: 1;
@@ -108,7 +111,7 @@ div.panel {
   margin-top: 46px; }
   div.panel ol {
     bottom: 220px;
-    left: -128px;
+    margin: 0;
     flex-direction: column; }
     div.panel ol > li {
       margin: 3px;
